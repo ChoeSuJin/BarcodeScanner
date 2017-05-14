@@ -6,8 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.zxing.integration.android.IntentIntegrator;
+import com.journeyapps.barcodescanner.CaptureActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,7 +19,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button btnCamera;
+        TextView textViewResult;
+
         btnCamera = (Button) findViewById(R.id.btnOpenCamera);
+        textViewResult = (TextView) findViewById(R.id.textViewResult);
         /*IntentIntegrator integrator = new IntentIntegrator(this);
         integrator.setCaptureActivity(CaptureActivityAnyOrientation.class);
         integrator.setOrientationLocked(true);
@@ -27,20 +32,23 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Activity activity = new MainActivity();
-
-                IntentIntegrator integrator = new IntentIntegrator(activity);
-                integrator.setCaptureActivity(CaptureActivityAnyOrientation.class);
-                integrator.setOrientationLocked(true);
-                integrator.setPrompt("바코드를 스캔합니다.");
-                integrator.initiateScan();
+                scanBarcodeCustomLayout(v);
 
             }
         });
 
-
-
-
-
     }
+
+
+
+    public void scanBarcodeCustomLayout(View view) {
+        IntentIntegrator integrator = new IntentIntegrator(this);
+        integrator.setCaptureActivity(CaptureActivityAnyOrientation.class);
+        integrator.setDesiredBarcodeFormats(IntentIntegrator.ONE_D_CODE_TYPES);
+        integrator.setPrompt("Scan something");
+        integrator.setOrientationLocked(true);
+        integrator.setBeepEnabled(false);
+        integrator.initiateScan();
+    }
+
 }

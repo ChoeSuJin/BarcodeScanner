@@ -13,6 +13,13 @@
             android:layout_height="50dp"
             android:id="@+id/btnOpenCamera"
             android:text="바코드 스캔"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="500px"
+            android:id="@+id/textViewResult"
+            android:text="결과 확인"/>
     </LinearLayout>
+
 
 </android.widget.RelativeLayout>

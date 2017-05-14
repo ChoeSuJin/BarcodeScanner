@@ -1,6 +1,5 @@
 package book.android.com.barcodescanner;
 
-import com.google.zxing.integration.android.IntentIntegrator;
 import com.journeyapps.barcodescanner.CaptureActivity;
 
 /**

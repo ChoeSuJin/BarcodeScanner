@@ -17,13 +17,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".CaptureActivityAnyOrientation"
-            android:screenOrientation="fullSensor"
-            android:stateNotNeeded="true"
+            android:screenOrientation="portrait"
+            android:stateNotNeeded="false"
             android:theme="@style/zxing_CaptureTheme"
             android:windowSoftInputMode="stateAlwaysHidden">
-            <intent-filter>
-                <action android:name="android.intent.action.ALL_APPS"></action>
-            </intent-filter>
         </activity>
 
 
